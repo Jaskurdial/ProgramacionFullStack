@@ -1,3 +1,57 @@
 body {
     background-color: rgb(83, 49, 5);
+        color: rgb(245, 233, 218);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(212, 163, 115);
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: rgb(212, 163, 115);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(245, 233, 218);
+    text-decoration: underline;
+}
+
+button {
+    background-color: rgb(212, 163, 115);
+    color: rgb(83, 49, 5);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgb(181, 131, 90);
+    color: rgb(245, 233, 218);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgb(111, 78, 55);
+    color: rgb(245, 233, 218);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }

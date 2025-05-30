@@ -1,0 +1,102 @@
+body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+header {
+  background: #888888;
+  margin: 10px 10px 5px 10px;
+  height: 80px;
+  padding: 10px;
+}
+
+.logo {
+  background: #666666;
+  float: left;
+  width: 15%;
+  height: 40px;
+  text-align: center;
+}
+
+.buscador {
+  background: #999999;
+  float: right;
+  width: 15%;
+  height: 40px;
+  text-align: center;
+}
+
+.menu-superior {
+  clear: both;
+  background: #bbbbbb;
+  margin: 10px 10px 5px 10px;
+  height: 40px;
+  width: auto;
+  text-align: center;
+}
+
+.contenedor {
+  margin: 10px;
+  width: auto;
+  height: 100%;
+  overflow: hidden;
+}
+
+.aside-ver {
+  float: left;
+  background: #aaaaaa;
+  margin-right: 10px;
+  width: 30%;
+  height: 480px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.contenido-der {
+  float: left;
+  background: #cccccc;
+  margin: 0;
+  width: 68%;
+  height: 480px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.imagenes {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.imagen {
+  float: left;
+  width: 48%;
+  height: 30%;
+  background: #dddddd;
+  margin: 1%;
+  text-align: center;
+}
+
+article {
+  background: #cccccc;
+  height: 200px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.boton-centro {
+  width: em;
+  margin: 18% auto;
+  background: #bbbbbb;
+  height: 30px;
+  text-align: center;
+  display: block;
+}
+
+footer {
+  clear: both;
+  background: #555555;
+  margin: 10px;
+  height: 40px;
+  text-align: center;
+}

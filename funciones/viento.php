@@ -1,12 +1,20 @@
 <?php
-function procesarViento($entrada, $salida) {
+function procesarViento($entrada, $salida, $nombreOriginal) {
+
+    if (
+        stripos($nombreOriginal, 'viento') === false &&
+        stripos($nombreOriginal, 'wind') === false
+    ) {
+        echo "Archivo inválido para viento.";
+        exit;
+    }
+
     $in = fopen($entrada, 'r');
-    $out = fopen($salida, 'w');
+    $out = fopen($salida, 'w');    
 
     fwrite($out, "\xEF\xBB\xBF");
 
     fgetcsv($in, 0, ';');
-
     fputcsv($out, ['Fecha', 'Departamento', 'Promedio (km/h)', 'Nivel'], ';');
 
     $datos = [];
@@ -18,6 +26,7 @@ function procesarViento($entrada, $salida) {
         $estacion = trim(preg_replace('/\s*G3$/', '', $fila[1]));
         $valor = floatval(str_replace(',', '.', $fila[2]));
         $fecha = substr($fechaHora, 0, 10);
+
         $clave = $fecha . '|' . $estacion;
 
         if (!isset($datos[$clave])) {

@@ -7,15 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!is_dir("uploads")) {
-    mkdir("uploads", 0777, true);
+        mkdir("uploads", 0777, true);
     }
     if (!is_dir("resultados")) {
-    mkdir("resultados", 0777, true);
+        mkdir("resultados", 0777, true);
     }
-
 
     $tipo = $_POST['tipo'];
     $tmp = $_FILES['archivo']['tmp_name'];
+    $nombreOriginal = $_FILES['archivo']['name'];
     $nombreGuardado = uniqid("csv_") . ".csv";
     $rutaSubida = "uploads/" . $nombreGuardado;
 
@@ -32,16 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($tipo) {
         case 'temperatura':
-            procesarTemperatura($rutaSubida, $rutaResultado);
+            procesarTemperatura($rutaSubida, $rutaResultado, $nombreOriginal);
             break;
         case 'humedad':
-            procesarHumedad($rutaSubida, $rutaResultado);
+            procesarHumedad($rutaSubida, $rutaResultado, $nombreOriginal);
             break;
         case 'lluvia':
-            procesarLluvia($rutaSubida, $rutaResultado);
+            procesarLluvia($rutaSubida, $rutaResultado, $nombreOriginal);
             break;
         case 'viento':
-            procesarViento($rutaSubida, $rutaResultado);
+            procesarViento($rutaSubida, $rutaResultado, $nombreOriginal);
             break;
         default:
             http_response_code(400);

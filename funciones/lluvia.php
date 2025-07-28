@@ -1,12 +1,20 @@
 <?php
-function procesarLluvia($entrada, $salida) {
+function procesarLluvia($entrada, $salida, $nombreOriginal) {
+
+    if (
+        stripos($nombreOriginal, 'lluvia') === false &&
+        stripos($nombreOriginal, 'precipitacion') === false
+    ) {
+        echo "Archivo inválido para lluvia.";
+        exit;
+    }
+
     $in = fopen($entrada, 'r');
     $out = fopen($salida, 'w');
 
     fwrite($out, "\xEF\xBB\xBF");
 
     fgetcsv($in, 0, ';');
-
     fputcsv($out, ['Fecha', 'Departamento', 'Promedio (mm)', 'Nivel'], ';');
 
     $datos = [];
@@ -18,6 +26,7 @@ function procesarLluvia($entrada, $salida) {
         $estacion = trim(preg_replace('/\s*G3$/', '', $fila[1]));
         $valor = floatval(str_replace(',', '.', $fila[2]));
         $fecha = substr($fechaHora, 0, 10);
+
         $clave = $fecha . '|' . $estacion;
 
         if (!isset($datos[$clave])) {

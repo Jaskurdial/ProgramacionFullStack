@@ -1,12 +1,20 @@
 <?php
-function procesarTemperatura($entrada, $salida) {
+function procesarTemperatura($entrada, $salida, $nombreOriginal) {
+
+    if (
+        stripos($nombreOriginal, 'temperatura') === false &&
+        stripos($nombreOriginal, 'temp') === false
+    ) {
+        echo "Archivo inválido para temperatura.";
+        exit;
+    }
+
     $in = fopen($entrada, 'r');
     $out = fopen($salida, 'w');
 
     fwrite($out, "\xEF\xBB\xBF");
 
     fgetcsv($in, 0, ';');
-
     fputcsv($out, ['Fecha', 'Departamento', 'Promedio (°C)', 'Nivel'], ';');
 
     $datos = [];

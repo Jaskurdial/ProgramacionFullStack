@@ -1,8 +1,19 @@
 <?php
-function procesarHumedad($entrada, $salida) {
+function procesarHumedad($entrada, $salida, $nombreOriginal) {
+
+    if (
+        stripos($nombreOriginal, 'humedad') === false &&
+        stripos($nombreOriginal, 'hum') === false
+    ) {
+        echo "Archivo inválido para humedad.";
+        exit;
+    }
+
     $in = fopen($entrada, 'r');
     $out = fopen($salida, 'w');
+
     fwrite($out, "\xEF\xBB\xBF");
+
     fgetcsv($in, 0, ';');
     fputcsv($out, ['Fecha', 'Departamento', 'Promedio (% o mr)', 'Nivel'], ';');
 

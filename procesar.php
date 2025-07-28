@@ -6,6 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    if (!is_dir("uploads")) {
+    mkdir("uploads", 0777, true);
+    }
+    if (!is_dir("resultados")) {
+    mkdir("resultados", 0777, true);
+    }
+
+
     $tipo = $_POST['tipo'];
     $tmp = $_FILES['archivo']['tmp_name'];
     $nombreGuardado = uniqid("csv_") . ".csv";

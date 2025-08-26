@@ -24,6 +24,9 @@ function procesarLluvia($entrada, $salida, $nombreOriginal) {
 
         $fechaHora = $fila[0];
         $estacion = trim(preg_replace('/\s*G3$/', '', $fila[1]));
+
+        if (stripos($estacion, 'colonia') === false) continue;
+
         $valor = floatval(str_replace(',', '.', $fila[2]));
         $fecha = substr($fechaHora, 0, 10);
 
